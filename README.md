@@ -1,12 +1,16 @@
-## NOTE
+# docker-openssl
 
-This repo is no longer being maintained. Users are welcome to fork it, but we make no warranty of its functionality.
+This repository contains a Dockerfile for a lightweight container based on Alpine Linux with the OpenSSL tool installed. The primary purpose of this container is to use OpenSSL to create self-signed certificates without the need to install OpenSSL on the computer itself.
 
-openssl
-=======
+## Maintainers
 
-[![](https://badge.imagelayers.io/centurylink/openssl.svg)](https://imagelayers.io/?images=centurylink/openssl:latest 'Get your own badge on imagelayers.io')
+Original Maintainer: [CenturyLink Labs](https://github.com/CenturyLinkLabs/openssl) <clt-labs-futuretech@centurylink.com>
+Current Maintainer: Lars Fernhomberg
 
-Debian based image with openssl for ssl certificate generation.
+## Build image
 
-Usage `docker run --rm  -e COMMON_NAME=<Common Name> -e KEY_NAME=<Cert File Names Prefix> -v /var/certs:/certs centurylink/openssl`
+To build the image, you have to use the command `docker build -t openssl .`. This creates a new Docker image called "openssl".
+
+## Usage
+
+Usage `docker run --rm  -e COMMON_NAME=<Common Name> -e KEY_NAME=<Cert File Names Prefix> -v /var/certs:/certs openssl`
