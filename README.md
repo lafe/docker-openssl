@@ -30,5 +30,5 @@ $pfxPassword = "1234"
 docker run --rm -v "$($path):/certs" openssl genrsa -out /certs/$keyName.key 1024
 docker run --rm -v "$($path):/certs" openssl req -new -newkey rsa:4096 -days $duration -nodes -subj "/C=/ST=/L=/O=/CN=$($commonName)" -keyout /certs/$keyName.key -out /certs/$keyName.csr
 docker run --rm -v "$($path):/certs" openssl x509 -req -days $duration -in /certs/$keyName.csr -signkey /certs/$keyName.key -out /certs/$keyName.crt
-docker run --rm -v "$($path):/certs" openssl pkcs12 -export -out /certs/$keyName.pfx -inkey /certs/$keyName.key -in /certs/$keyName.crt -password "pass:$pfxPassword"
+docker run --rm -v "$($path):/certs" openssl pkcs12 -export -out /certs/$keyName.pfx -inkey /certs/$keyName.key -in /certs/$keyName.crt -password "pass:$($pfxPassword)"
 ```
